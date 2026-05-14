@@ -36,6 +36,9 @@ public:
 
 	virtual uint32_t	Write(OutputMemoryBitStream& inOutputStream, uint32_t inDirtyState) const override;
 
+	Vector3				mDashVelocity;
+
+
 protected:
 	RoboCat();
 
@@ -66,7 +69,9 @@ protected:
 	float				mThrustDir;
 	int					mHealth;
 
-	bool				mIsShooting;
+	bool				mIsDashing;
+
+
 };
 
 typedef shared_ptr< RoboCat >	RoboCatPtr;

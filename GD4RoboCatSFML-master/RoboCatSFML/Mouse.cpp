@@ -2,16 +2,25 @@
 
 Mouse::Mouse()
 {
-	SetScale(GetScale() * 0.5f);
+	SetScale(GetScale() * 1.f);
 	SetCollisionRadius(20.f);
 }
 
-
 bool Mouse::HandleCollisionWithCat(RoboCat* inCat)
 {
-	(void)inCat;
-	return false;
+	if (!mIsPickedUp)
+	{
+		mIsPickedUp = true;
+		// Add visual/audio feedback here maybe
+	}
+	return true; 
 }
+
+//bool Mouse::HandleCollisionWithCat(RoboCat* inCat)
+//{
+//	(void)inCat;
+//	return false;
+//}
 
 
 uint32_t Mouse::Write(OutputMemoryBitStream& inOutputStream, uint32_t inDirtyState) const

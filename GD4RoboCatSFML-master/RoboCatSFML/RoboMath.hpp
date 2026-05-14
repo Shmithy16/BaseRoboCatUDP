@@ -201,5 +201,6 @@ namespace Colors
 	static const Vector3 LightBlue(173.4f, 216.75f, 229.5f);
 	static const Vector3 LightPink(255.0f, 181.05f, 193.8f);
 	static const Vector3 LightGreen(142.8f, 237.15f, 142.8f);
+	static const Vector3 Gold(255.0f, 215.0f, 0.0f);
 }
 

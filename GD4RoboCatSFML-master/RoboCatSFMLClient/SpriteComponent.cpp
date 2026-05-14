@@ -19,7 +19,7 @@ void SpriteComponent::SetTexture(TexturePtr inTexture)
 	auto tSize = inTexture->getSize();
 	m_sprite.setTexture(*inTexture);
 	m_sprite.setOrigin(tSize.x / 2, tSize.y / 2);
-	m_sprite.setScale(sf::Vector2f(1.f * mGameObject->GetScale(), 1.f * mGameObject->GetScale()));
+	m_sprite.setScale(sf::Vector2f(0.5f * mGameObject->GetScale(), 0.5f * mGameObject->GetScale()));
 }
 
 sf::Sprite& SpriteComponent::GetSprite()

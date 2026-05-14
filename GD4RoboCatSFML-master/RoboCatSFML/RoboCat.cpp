@@ -10,12 +10,13 @@ RoboCat::RoboCat() :
 	mVelocity(Vector3::Zero),
 	mWallRestitution(0.1f),
 	mCatRestitution(0.1f),
+	mDashVelocity(Vector3::Zero),
 	mThrustDir(0.f),
 	mPlayerId(0),
-	mIsShooting(false),
+	mIsDashing(false),
 	mHealth(10)
 {
-	SetCollisionRadius(60.f);
+	SetCollisionRadius(40.f);
 }
 
 void RoboCat::ProcessInput(float inDeltaTime, const InputState& inInputState)
@@ -31,7 +32,7 @@ void RoboCat::ProcessInput(float inDeltaTime, const InputState& inInputState)
 	mThrustDir = inputForwardDelta;
 
 
-	mIsShooting = inInputState.IsShooting();
+	mIsDashing = inInputState.IsDashing();
 
 }
 
@@ -41,6 +42,8 @@ void RoboCat::AdjustVelocityByThrust(float inDeltaTime)
 	//simulating acceleration makes the client prediction a bit more complex
 	Vector3 forwardVector = GetForwardVector();
 	mVelocity = forwardVector * (mThrustDir * inDeltaTime * mMaxLinearSpeed);
+	mVelocity += mDashVelocity; // Add dash on top
+	mDashVelocity *= 0.95f; // Decay the dash over time
 }
 
 void RoboCat::SimulateMovement(float inDeltaTime)

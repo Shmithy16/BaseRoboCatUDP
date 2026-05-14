@@ -2,8 +2,8 @@
 
 RoboCatServer::RoboCatServer() :
 	mCatControlType(ESCT_Human),
-	mTimeOfNextShot(0.f),
-	mTimeBetweenShots(0.2f)
+	mTimeOfNextDash(0.f),
+	mTimeBetweenDash(1.5f)
 {}
 
 void RoboCatServer::HandleDying()
@@ -50,7 +50,7 @@ void RoboCatServer::Update()
 	}
 
 
-	HandleShooting();
+	HandleDashing();
 
 	if (!RoboMath::Is2DVectorEqual(oldLocation, GetLocation()) ||
 		!RoboMath::Is2DVectorEqual(oldVelocity, GetVelocity()) ||
@@ -60,17 +60,24 @@ void RoboCatServer::Update()
 	}
 }
 
-void RoboCatServer::HandleShooting()
+void RoboCatServer::HandleDashing()
 {
-	float time = Timing::sInstance.GetFrameStartTime();
-	if (mIsShooting && Timing::sInstance.GetFrameStartTime() > mTimeOfNextShot)
-	{
-		//not exact, but okay
-		mTimeOfNextShot = time + mTimeBetweenShots;
+	//float time = Timing::sInstance.GetFrameStartTime();
+	//if (mIsDashing && Timing::sInstance.GetFrameStartTime() > mTimeOfNextDash)
+	//{
+	//	//not exact, but okay
+	//	mTimeOfNextDash = time + mTimeBetweenDash;
 
-		//fire!
-		YarnPtr yarn = std::static_pointer_cast<Yarn>(GameObjectRegistry::sInstance->CreateGameObject('YARN'));
-		yarn->InitFromShooter(this);
+	//	//fire!
+	//	YarnPtr yarn = std::static_pointer_cast<Yarn>(GameObjectRegistry::sInstance->CreateGameObject('YARN'));
+	//	yarn->InitFromShooter(this);
+	//}
+	float time = Timing::sInstance.GetFrameStartTime();
+	if (mIsDashing && Timing::sInstance.GetFrameStartTime() > mTimeOfNextDash)
+	{
+		mTimeOfNextDash = time + mTimeBetweenDash;
+		Vector3 dashDirection = GetForwardVector();
+		mDashVelocity = dashDirection * 900.0f;
 	}
 }
 

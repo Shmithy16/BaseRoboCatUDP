@@ -13,6 +13,7 @@ bool Server::StaticInit()
 	return true;
 }
 
+
 Server::Server()
 {
 
@@ -74,7 +75,7 @@ namespace
 void Server::SetupWorld()
 {
 	//spawn some random mice
-	CreateRandomMice(10);
+	CreateRandomMice(1);
 
 	//spawn more random mice!
 	//CreateRandomMice(10);

@@ -22,5 +22,10 @@ public:
 
 protected:
 	Mouse();
+
+private:
+	bool mIsPickedUp = false;
+	float mPointsAccumulationTimer = 0.f;
+	float mPointsPerSecond = 10.f;  // point speed
 };
 

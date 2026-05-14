@@ -21,13 +21,13 @@ protected:
 
 private:
 
-	void HandleShooting();
+	void HandleDashing();
 
 	ECatControlType	mCatControlType;
 
 
-	float		mTimeOfNextShot;
-	float		mTimeBetweenShots;
+	float		mTimeOfNextDash;
+	float		mTimeBetweenDash;
 
 };
 
