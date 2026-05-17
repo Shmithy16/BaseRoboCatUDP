@@ -8,6 +8,7 @@ Mouse::Mouse()
 
 bool Mouse::HandleCollisionWithCat(RoboCat* inCat)
 {
+	//Help with AI
 	if (!mIsPickedUp)
 	{
 		mIsPickedUp = true;

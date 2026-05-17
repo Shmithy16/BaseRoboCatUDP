@@ -10,7 +10,7 @@ RoboCat::RoboCat() :
 	mVelocity(Vector3::Zero),
 	mWallRestitution(0.1f),
 	mCatRestitution(0.1f),
-	mDashVelocity(Vector3::Zero),
+	mDashVelocity(Vector3::Zero), //Help with AI
 	mThrustDir(0.f),
 	mPlayerId(0),
 	mIsDashing(false),

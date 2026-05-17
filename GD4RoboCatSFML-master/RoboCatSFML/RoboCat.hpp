@@ -38,11 +38,11 @@ public:
 
 	Vector3				mDashVelocity; 
 
-	bool HasShine() const { return mHasShine; }
-	void SetHasShine(bool hasIt) { mHasShine = hasIt; }
-	float GetCollisionRadius() const { return GameObject::GetCollisionRadius(); }
+	bool HasShine() const { return mHasShine; } //Help with AI
+	void SetHasShine(bool hasIt) { mHasShine = hasIt; } //Help with AI
+	float GetCollisionRadius() const { return GameObject::GetCollisionRadius(); } //Help with AI
 
-	bool				mIsDashing;
+	bool				mIsDashing; //Help with AI
 	
 protected:
 	RoboCat();
@@ -63,8 +63,8 @@ private:
 
 	uint32_t			mPlayerId;
 
-	bool mHasShine;
-	float mCollisionRadius;
+	bool mHasShine;//Help with AI
+	float mCollisionRadius; //Help with AI
 
 protected:
 

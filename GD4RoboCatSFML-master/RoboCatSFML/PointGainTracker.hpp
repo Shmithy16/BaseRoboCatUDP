@@ -1,5 +1,8 @@
 #pragma once
 
+//Ben Arrowsmith
+//Help with AI
+
 #include <vector>
 #include <memory>
 

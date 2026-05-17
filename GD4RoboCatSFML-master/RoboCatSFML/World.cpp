@@ -8,7 +8,7 @@ void World::StaticInit()
 	sInstance.reset(new World());
 }
 
-World::World() : mShineHolderId(-1)
+World::World() : mShineHolderId(-1) //Help with AI
 {
 }
 
@@ -20,7 +20,7 @@ void World::AddGameObject(GameObjectPtr inGameObject)
 }
 
 
-void World::RemoveGameObject(GameObjectPtr inGameObject)
+void World::RemoveGameObject(GameObjectPtr inGameObject) //Help with AI
 {
 	int index = inGameObject->GetIndexInWorld();
 
@@ -59,10 +59,10 @@ void World::Update()
 			--c;
 		}
 	}
-    CheckDashCollisions();
+    CheckDashCollisions(); //Help with AI
 }
 
-void World::TransferShine(RoboCatPtr inFromPlayer, RoboCatPtr inToPlayer)
+void World::TransferShine(RoboCatPtr inFromPlayer, RoboCatPtr inToPlayer) //Help with AI
 {
     if (!inToPlayer)
         return;
@@ -82,7 +82,7 @@ void World::TransferShine(RoboCatPtr inFromPlayer, RoboCatPtr inToPlayer)
     PointGainTracker::sInstance->StartPointGain(inToPlayer->GetPlayerId());
 }
 
-void World::CheckDashCollisions()
+void World::CheckDashCollisions() //Help with AI
 {
     const auto& gameObjects = GetGameObjects();
 
