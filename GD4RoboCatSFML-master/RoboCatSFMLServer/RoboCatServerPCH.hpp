@@ -11,3 +11,5 @@
 #include "MouseServer.hpp"
 #include "YarnServer.hpp"
 
+#include "PointGainTracker.hpp"
+

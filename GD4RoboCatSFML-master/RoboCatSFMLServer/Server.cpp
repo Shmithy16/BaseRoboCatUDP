@@ -21,6 +21,8 @@ Server::Server()
 	GameObjectRegistry::sInstance->RegisterCreationFunction('MOUS', MouseServer::StaticCreate);
 	GameObjectRegistry::sInstance->RegisterCreationFunction('YARN', YarnServer::StaticCreate);
 
+	new PointGainTracker();
+
 	InitNetworkManager();
 
 	// Setup latency
@@ -87,7 +89,16 @@ void Server::DoFrame()
 
 	NetworkManagerServer::sInstance->CheckForDisconnects();
 
-	NetworkManagerServer::sInstance->RespawnCats();
+	NetworkManagerServer::sInstance->RespawnCats(); 
+
+	PointGainTracker::sInstance->Update(Timing::sInstance.GetDeltaTime());
+
+
+	const auto& gameObjects = World::sInstance->GetGameObjects();
+	for (auto& gameObject : gameObjects)
+	{
+		gameObject->Update();
+	}
 
 	Engine::DoFrame();
 

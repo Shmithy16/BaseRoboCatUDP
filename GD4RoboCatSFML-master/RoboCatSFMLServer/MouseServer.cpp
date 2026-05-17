@@ -16,10 +16,11 @@ bool MouseServer::HandleCollisionWithCat(RoboCat* inCat)
 	//kill yourself!
 	SetDoesWantToDie(true);
 
-	ScoreBoardManager::sInstance->IncScore(inCat->GetPlayerId(), 1);
+	PointGainTracker::sInstance->StartPointGain(inCat->GetPlayerId());
 
 	return false;
 }
+
 
 
 
