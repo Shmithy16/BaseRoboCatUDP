@@ -17,9 +17,15 @@ public:
 
 	const std::vector< GameObjectPtr >& GetGameObjects()	const { return mGameObjects; }
 
+	int GetShineHolderId() const { return mShineHolderId; }
+	void TransferShine(RoboCatPtr inFormPlayer, RoboCatPtr inToPlayer);
+	void CheckDashCollisions();
+
 private:
 
 	World();
+
+	int mShineHolderId;
 
 	int	GetIndexOfGameObject(GameObjectPtr inGameObject);
 

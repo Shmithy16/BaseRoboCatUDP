@@ -36,15 +36,18 @@ public:
 
 	virtual uint32_t	Write(OutputMemoryBitStream& inOutputStream, uint32_t inDirtyState) const override;
 
-	Vector3				mDashVelocity;
+	Vector3				mDashVelocity; 
 
+	bool HasShine() const { return mHasShine; }
+	void SetHasShine(bool hasIt) { mHasShine = hasIt; }
+	float GetCollisionRadius() const { return GameObject::GetCollisionRadius(); }
 
+	bool				mIsDashing;
+	
 protected:
 	RoboCat();
 
 private:
-
-
 	void	AdjustVelocityByThrust(float inDeltaTime);
 
 	Vector3				mVelocity;
@@ -60,6 +63,9 @@ private:
 
 	uint32_t			mPlayerId;
 
+	bool mHasShine;
+	float mCollisionRadius;
+
 protected:
 
 	///move down here for padding reasons...
@@ -67,9 +73,7 @@ protected:
 	float				mLastMoveTimestamp;
 
 	float				mThrustDir;
-	int					mHealth;
-
-	bool				mIsDashing;
+	int					mHealth;	
 
 
 };

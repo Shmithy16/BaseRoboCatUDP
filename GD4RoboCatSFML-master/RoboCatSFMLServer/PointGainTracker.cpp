@@ -36,3 +36,14 @@ void PointGainTracker::Update(float deltaTime)
         }
     }
 }
+
+void PointGainTracker::StopPointGain(int playerId)
+{
+    auto it = std::find_if(mActiveGains.begin(), mActiveGains.end(),
+        [playerId](const ActivePointGain& gain) { return gain.playerId == playerId; });
+
+    if (it != mActiveGains.end())
+    {
+        mActiveGains.erase(it);
+    }
+}

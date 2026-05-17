@@ -19,6 +19,7 @@ public:
 
     void StartPointGain(int playerId);
     void Update(float deltaTime);
+    void StopPointGain(int playerId);
 
 private:
     std::vector<ActivePointGain> mActiveGains;
