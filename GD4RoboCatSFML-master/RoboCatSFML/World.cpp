@@ -1,6 +1,5 @@
 #include "RoboCatPCH.hpp"
-#include "../RoboCatSFMLServer/PointGainTracker.hpp"
-
+#include "PointGainTracker.hpp"
 
 std::unique_ptr< World > World::sInstance;
 

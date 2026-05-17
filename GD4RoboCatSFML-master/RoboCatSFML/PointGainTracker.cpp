@@ -1,4 +1,6 @@
-#include "RoboCatServerPCH.hpp"
+#include "RoboCatPCH.hpp"
+#include "PointGainTracker.hpp"
+
 
 PointGainTracker* PointGainTracker::sInstance = nullptr;
 
